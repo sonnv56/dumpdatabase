@@ -19,7 +19,7 @@ import pojos.Publication;
 public class Main {
 	public static String LINK = "http://vci.vhv.vn/services.php?serviceModule=CMS.Publication&serviceMethod=exportSQL&source=jed.edu.vn&mode=View";
 	public static String FILE_DESTINATION = "/Users/sonnguyen/Desktop/aticles.json";
-	
+
 	public static String AUTHOR_REGEX_ELEMENT = ";";
 	public static String AUTHOR_REGEX = "<br> ";
 	List<Publication> publications = new ArrayList<Publication>();
@@ -70,7 +70,10 @@ public class Main {
 			String source = attrs.get(2).text();
 			String abstracts = attrs.get(6).text();
 			String journalName = attrs.get(1).text();
-			int year = Integer.parseInt(attrs.get(4).text());
+			int year = -1;
+			try{
+				year = Integer.parseInt(attrs.get(4).text());
+			}catch(NumberFormatException e){}
 			p = new Publication(title, abstracts, uri, authors, journalName, volume, number, year, source, usable, DOI,
 					citedList);
 		}
