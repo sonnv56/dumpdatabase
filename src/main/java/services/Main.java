@@ -17,7 +17,7 @@ import pojos.Author;
 import pojos.Publication;
 
 public class Main {
-	public static String LINK = "http://vci.vhv.vn/services.php?serviceModule=CMS.Publication&serviceMethod=exportSQL&source=jed.edu.vn&mode=View";
+	public static String FILE_INPUT = "/Users/sonnguyen/Desktop/jed.edu.vn.html";
 	public static String FILE_DESTINATION = "/Users/sonnguyen/Desktop/aticles.json";
 
 	public static String AUTHOR_REGEX_ELEMENT = ";";
@@ -25,7 +25,8 @@ public class Main {
 	List<Publication> publications = new ArrayList<Publication>();
 
 	public static void main(String args[]) throws IOException {
-		Document doc = Jsoup.connect(LINK).get();
+//		Document doc = Jsoup.connect(LINK).get();
+		Document doc = Jsoup.parse(new File(FILE_INPUT), "UTF-8");
 		List<Publication> publications = new ArrayList<Publication>();
 		Elements articles = doc.getElementsByTag("tr");
 		for (Element articleDOM : articles) {
