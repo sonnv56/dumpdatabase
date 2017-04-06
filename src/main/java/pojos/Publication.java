@@ -20,7 +20,7 @@ public class Publication {
     private String DOI;
     private String clusterId;
     private String citeId;
-    private String citedList;
+    private String references;
 
     public Publication(String title, String abstracts, String uri, List<Author> authors, String journalName, String volume,
                        String number, int year, String source, boolean usable, String DOI, String citedList) {
@@ -39,7 +39,7 @@ public class Publication {
         this.DOI = DOI;
         this.clusterId = "";
         this.citeId = "";
-        this.citedList = citedList;
+        this.references = citedList;
     }
 
     public Publication(String title, String abstracts, String uri, List<Author> authors, String journalName, String volume, String number,
@@ -59,7 +59,7 @@ public class Publication {
         this.DOI = DOI;
         this.clusterId = clusterId;
         this.citeId = citeId;
-        this.citedList = citedList;
+        this.references = citedList;
     }
 
     public String getTitle() {
@@ -199,11 +199,11 @@ public class Publication {
     }
 
     public String getCitedList() {
-        return citedList;
+        return references;
     }
 
     public void setCitedList(String citedList) {
-        this.citedList = citedList;
+        this.references = citedList;
     }
 
     @Override
@@ -226,7 +226,7 @@ public class Publication {
                 ", DOI='" + DOI + '\'' +
                 ", clusterId='" + clusterId + '\'' +
                 ", citeId='" + citeId + '\'' +
-                ", citedList=" + citedList +
+                ", references=" + references +
                 '}';
     }
 }
