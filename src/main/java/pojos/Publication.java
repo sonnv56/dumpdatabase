@@ -20,13 +20,15 @@ public class Publication {
     private String DOI;
     private String clusterId;
     private String citeId;
+    private String keyword;
     private String references;
 
     public Publication(String title, String abstracts, String uri, List<Author> authors, String journalName, String volume,
-                       String number, int year, String source, boolean usable, String DOI, String citedList) {
+                       String number, int year, String source, boolean usable, String DOI, String citedList, String keyword) {
         this.title = title;
         this.abstracts = abstracts;
         this.uri = uri;
+        this.keyword = keyword;
         this.authors = authors;
         this.journalName = journalName;
         this.volume = volume;
@@ -204,6 +206,22 @@ public class Publication {
 
     public void setCitedList(String citedList) {
         this.references = citedList;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getReferences() {
+        return references;
+    }
+
+    public void setReferences(String references) {
+        this.references = references;
     }
 
     @Override
