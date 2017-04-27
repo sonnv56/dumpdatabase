@@ -82,7 +82,7 @@ public class Main {
             String keyword = attrs.get(7).text();
             String abstracts = attrs.get(6).text();
             String journalName = attrs.get(1).text();
-            int year = -1;
+            int year = 0;
             try {
                 year = Integer.parseInt(attrs.get(4).text());
             } catch (NumberFormatException e) {
